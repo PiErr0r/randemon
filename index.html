@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="style/style.css">
+		<title>randemon</title>
+		<meta charset="utf-8"/>
+	</head>
+		<body>
+			<div id="stats">
+				<h1>RANDEMON</h1>
+				<p>medium fiend, annoying evil</p>
+				<hr>
+
+				<p><strong>Armor Class&nbsp;</strong>10</p>
+				<p><strong>Hit Points&nbsp;</strong>50</p>
+				<p><strong>Speed&nbsp;</strong>30ft.</p>
+				<hr>
+
+				<p>
+					<div id="stat"><strong>STR</strong></div>
+					<div id="stat"><strong>DEX</strong></div>
+					<div id="stat"><strong>CON</strong></div>
+					<div id="stat"><strong>INT</strong></div>
+					<div id="stat"><strong>WIS</strong></div>
+					<div id="stat"><strong>CHA</strong></div>
+				</p>
+				<p>
+					<div id="stat">10 (+0)</div>
+					<div id="stat">10 (+0)</div>
+					<div id="stat">10 (+0)</div>
+					<div id="stat">10 (+0)</div>
+					<div id="stat">10 (+0)</div>
+					<div id="stat">10 (+0)</div>
+				</p>
+				<hr>
+
+				<p>
+					<strong>Condition Immunities&nbsp;</strong>roll a D12 at the start of the each of his turns, the result indicates the immunity that it has in this turn (in order of result: blinded, charmed, deafned, frightened, grappled, incapacitated, paralysed, petrified, poisoned, prone, restrained, stunned). If he starts his turn in the resulter condition, the condition ends.
+				</p>
+				<p>
+					<strong>Damage Immunities&nbsp;</strong>roll a D12 at the start of each turn of his turn, the result indicates the immunity that it has this turn (in order of result: acid, bludgeoning, cold, fire, force, lightning, necrotic, piercing, poison, psychic, slashing, thunder).
+				</p>
+				<p>
+					<strong>Languages&nbsp;</strong>Abyssal
+				</p>
+				<hr>
+
+				<p>
+					<strong><em>Random Armor Class</em>&nbsp;</strong>before a creature makes an attack roll against the Randemon roll a D20, then add the result to the creature AC.
+				</p>
+				<p>
+					<strong><em>Random Saving Throw</em>&nbsp;</strong>every time the Randemon has to make a Saving throw, roll and additional D10 and add the result to the usual D20 roll.
+				</p>
+				<p>
+					<strong><em>Random Ability Checks</em>&nbsp;</strong>every time the Randemon has to make an Ability check, roll an additional D10+D4 and add the result to the usual D20 roll 
+				</p>
+
+				<h2>Actions</h2>
+				<p>
+					<strong><em>claw</em>&nbsp;</strong><em>Melee Weapon Attack:</em>&nbsp;add an additional D10 to hit, reach 5ft., one target. <em>Hit</em>&nbsp;roll a D4 to see how many d6 of damage it does
+				</p>
+				<p>
+					<strong><em>spines</em>&nbsp;</strong><em>Ranged Weapon Attack:</em>&nbsp;add an additional D10 to hit, reach 60ft., one target. <em>Hit</em>&nbsp;roll a D4 to see how many d6 of damage it does.
+				</p>
+			</div>
+
+			<div id="rng">
+				<h2>Immunities</h2>
+				<div>
+					<button onclick="getConditionImmunities();">
+						Condition Immunity
+					</button>
+					<input type="text" name="condition-immunity" disabled>
+				</div>
+				<script type="text/javascript">
+					function getConditionImmunities(){
+						const immunities = ["blinded", "charmed", "deafned", "frightened", "grappled", "incapacitated", "paralysed", "petrified", "poisoned", "prone", "restrained", "stunned"];
+						const random = Math.floor( Math.random() * 12 );
+						const value = immunities[ random ];
+						const input = document.getElementsByName('condition-immunity');
+						input[0].setAttribute('value', value);
+					}
+				</script>
+				<div>
+					<button onclick="getDamageImmunities();">
+						Damage Immunity
+					</button>
+					<input type="text" name="damage-immunity" disabled>
+				</div>
+				<script type="text/javascript">
+					function getDamageImmunities(){
+						const immunities = ["acid", "bludgeoning", "cold", "fire", "force", "lightning", "necrotic", "piercing", "poison", "psychic", "slashing", "thunder"];
+						const random = Math.floor( Math.random() * 12 );
+						const value = immunities[ random ];
+						const input = document.getElementsByName('damage-immunity');
+						input[0].setAttribute('value', value);
+					}
+				</script> 	
+				<h2>AC, Saving Throws, Abiity Checks</h2>			
+				<div>
+					<button onclick="getAC();">
+						AC
+					</button>
+					<input type="text" name="ac" disabled>
+				</div>
+				<script type="text/javascript">
+					function getAC(){
+						const base = 10;
+						const randomAC = Math.floor( Math.random() * 20 ) + 1;
+						const value = `${base} + ${randomAC} = ${base + randomAC}`;
+						const input = document.getElementsByName('ac');
+						input[0].setAttribute('value', value);
+					}
+				</script>
+				<div>
+					<button onclick="getSavingThrow();">
+						Saving Throw
+					</button>
+					<input type="text" name="saving-throw" disabled>
+				</div>
+				<script type="text/javascript">
+					function getSavingThrow(){
+						const base = 10;
+						const randomSavingThrow = Math.floor( Math.random() * 20 ) + 1;
+						const value = `${base} + ${randomSavingThrow} = ${base + randomSavingThrow}`;
+						const input = document.getElementsByName('saving-throw');
+						input[0].setAttribute('value', value);
+					}
+				</script>
+				<div>
+					<button onclick="getAbilityCheck();">
+						Ability Check
+					</button>
+					<input type="text" name="ability-check" disabled>
+				</div>
+				<script type="text/javascript">
+					function getAbilityCheck(){
+						const base = 10;
+						const randomAbilityCheck = Math.floor( Math.random() * 20 ) + 1;
+						const value = `${base} + ${randomAbilityCheck} = ${base + randomAbilityCheck}`;
+						const input = document.getElementsByName('ability-check');
+						input[0].setAttribute('value', value);
+					}
+				</script>
+				<h2>Attacks</h2>
+				<div>
+				</div>
+				<table>
+					<tr>
+						<td name="attack"></td>
+						<td>
+							<button onclick="getAttack('Claw');">
+								Claw
+							</button>
+							<button onclick="getAttack('Spines');">
+								Splines
+							</button>
+						</td>
+					</tr>
+					<tr>
+						<td id="label">Attack roll:</td>
+						<td><input type="text" name="attack-roll" disabled=""></td>
+					</tr>
+					<tr>
+						<td id="label">Damage:</td>
+						<td id="value"><input type="text" name="attack-damage" disabled=""></td>
+					</tr>
+				</table>
+				<script type="text/javascript">
+					function getAttack(type){
+						const d20 = Math.floor( Math.random() * 20 ) + 1;
+						const d10 = Math.floor( Math.random() * 10 ) + 1;
+						const d4 = Math.floor( Math.random() * 4 ) + 1;
+						let damage = 0;
+						let rollString = '(';
+
+						for(let i = 0; i < d4; i++){
+							const tempDmg = Math.floor( Math.random() * 6 ) + 1;
+							damage += tempDmg;
+							rollString = rollString.concat(i !== d4 - 1 ? `${tempDmg}, ` : `${tempDmg}`)
+						}
+						rollString = rollString.concat(')');
+
+						const attackRoll = `${d20} + ${d10} = ${d20 + d10}`;
+						const attackDamage = `${d4}d6 = ${damage}		${rollString}`; 
+
+						const ar = document.getElementsByName('attack-roll');
+						const ad = document.getElementsByName('attack-damage');
+
+						ar[0].setAttribute('value', attackRoll);
+						ad[0].setAttribute('value', attackDamage);
+
+						const td = document.getElementsByName('attack');
+						td[0].innerHTML = type;
+					}
+				</script>
+				<hr>
+				<div>
+					<button id="new-turn" onclick="getDamageImmunities(); getConditionImmunities();">
+						New Turn
+					</button>
+				</div>
+			</div>
+		</body>
+		<script type="text/javascript" href="script/script.js"></script>
+</html>
